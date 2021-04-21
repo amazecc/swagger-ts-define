@@ -14,33 +14,33 @@ yarn add swagger-ts-define -D
 
 ## 配置
 
-1. 根目录创建 `swagger-ts-define.config.js`，进行配置
+根目录创建 `swagger-ts-define.config.js`，进行配置
 
-   ```javascript
-   const config = {
-     /** swagger json schema 地址 */
-     docUrl: 'http://example/docs-json',
-     /** 类型输出目录，路径相对于根目录 */
-     outputDir: 'api',
-     /**
-      * 对 api url 进行处理，该名称将会作为 interface 的名称前缀
-      * @example /web/v1/user/list -> user/list -> interface UserListGetQuery {...}
-      */
-     getPath: (path) => path.match(/(?<=\/v1\/).+/)[0],
-     /** api 调用方法方法来源，将会插入到文件首部 */
-     requestForm: 'import { request } from "src/utils/request";',
-     /**
-      * 针对 iso8601 时间格式字符串的自定义类型
-      * @description 如果在 http 请求返回数据时统一做时间数据转换，比如统一转换为 Date 或者 Moment，那么可以在这里设置对应的类型
-      */
-     isoString: {
-       typeName: 'string', // 'Dayjs'
-       import: '', // 'import { Moment } from 'moment'
-     },
-   };
+```javascript
+const config = {
+  /** swagger json schema 地址 */
+  docUrl: 'http://example/docs-json',
+  /** 类型输出目录，路径相对于根目录 */
+  outputDir: 'api',
+  /**
+   * 对 api url 进行处理，该名称将会作为 interface 的名称前缀
+   * @example /web/v1/user/list -> user/list -> interface UserListGetQuery {...}
+   */
+  getPath: (path) => path.match(/(?<=\/v1\/).+/)[0],
+  /** api 调用方法方法来源，将会插入到文件首部 */
+  requestForm: 'import { request } from "src/utils/request";',
+  /**
+   * 针对 iso8601 时间格式字符串的自定义类型
+   * @description 如果在 http 请求返回数据时统一做时间数据转换，比如统一转换为 Date 或者 Moment，那么可以在这里设置对应的类型
+   */
+  isoString: {
+    typeName: 'string', // 'Dayjs'
+    import: '', // 'import { Moment } from 'moment'
+  },
+};
 
-   module.exports = config;
-   ```
+module.exports = config;
+```
 
 ## 运行
 
