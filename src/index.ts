@@ -86,7 +86,7 @@ const getSchema = async (url: string): Promise<Docs> => {
 /** 开始任务 */
 const run = async () => {
   const docs = await getSchema(options.docUrl);
-  const parser = new SchemaParser((docs as unknown) as Docs, { getPath: (path) => path.match(/(?<=\/v1\/).+/)![0], isoStringTypeName: options.isoString.typeName });
+  const parser = new SchemaParser((docs as unknown) as Docs, { getPath: options.getPath, isoStringTypeName: options.isoString.typeName });
   parser.parse();
   fs.ensureDir(outputDir);
   createAPIType(parser.types);

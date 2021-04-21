@@ -28,13 +28,13 @@ const config = {
    */
   getPath: (path) => path.match(/(?<=\/v1\/).+/)[0],
   /** api 调用方法方法来源，将会插入到文件首部 */
-  requestForm: 'import { request } from "src/utils/request";',
+  requestFrom: 'import { request } from "src/utils/request";',
   /**
    * 针对 iso8601 时间格式字符串的自定义类型
    * @description 如果在 http 请求返回数据时统一做时间数据转换，比如统一转换为 Date 或者 Moment，那么可以在这里设置对应的类型
    */
   isoString: {
-    typeName: 'string', // 'Dayjs'
+    typeName: 'string', // 'Moment'
     import: '', // 'import { Moment } from 'moment'
   },
 };
@@ -45,8 +45,8 @@ module.exports = config;
 ## 运行
 
 ```sh
-# 生成 api 类型以及 api 调用方法
-swagger-ts-define
+# 项目根目录执行
+npx swagger-ts-define
 ```
 
 ## 类型说明

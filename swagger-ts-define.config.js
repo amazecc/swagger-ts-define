@@ -1,5 +1,5 @@
 const config = {
-  docUrl: 'http://edc-test.youbaokeji.cn/docs-json',
+  docUrl: 'http://example/docs-json',
   outputDir: 'api',
   getPath: (path) => path.match(/(?<=\/v1\/).+/)[0],
   requestFrom: 'import { request } from "src/utils/request";',
