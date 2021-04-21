@@ -64,10 +64,10 @@ swagger-ts-define
 
 1. 生成的类型分为四大类：`UrlGetQuery`,`UrlGetParam`,`UrlPostBody`,`UrlGetResponse`
 
-2. 可自行封装通用 http 请求函数来使用以上生成的类型，在配置文件中配置 `requestForm` 即可自动生成接口调用文件
+2. 可自行封装通用 http 请求函数来使用以上生成的类型，在配置文件中配置 `requestFrom` 即可自动生成接口调用文件
 
    ```ts
-   request(query: UrlGetQuery, param: UrlGetParam, body: UrlPostBody): Promise<UrlGetResponse>
+   request(config: { query?: UrlGetQuery, param?: UrlGetParam, body?: UrlPostBody, url: string, method: string, ... }): Promise<UrlGetResponse>
    ```
 
 #### 例子
