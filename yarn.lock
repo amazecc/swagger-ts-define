@@ -23,7 +23,7 @@
 
 "@types/node-fetch@^2.5.10":
   version "2.5.10"
-  resolved "https://registry.npm.taobao.org/@types/node-fetch/download/@types/node-fetch-2.5.10.tgz#9b4d4a0425562f9fcea70b12cb3fcdd946ca8132"
+  resolved "https://registry.nlark.com/@types/node-fetch/download/@types/node-fetch-2.5.10.tgz?cache=0&sync_timestamp=1618847140568&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fnode-fetch%2Fdownload%2F%40types%2Fnode-fetch-2.5.10.tgz#9b4d4a0425562f9fcea70b12cb3fcdd946ca8132"
   integrity sha1-m01KBCVWL5/OpwsSyz/N2UbKgTI=
   dependencies:
     "@types/node" "*"
@@ -31,7 +31,7 @@
 
 "@types/node@*", "@types/node@^14.14.41":
   version "14.14.41"
-  resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.14.41.tgz#d0b939d94c1d7bd53d04824af45f1139b8c45615"
+  resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.14.41.tgz?cache=0&sync_timestamp=1618543947232&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-14.14.41.tgz#d0b939d94c1d7bd53d04824af45f1139b8c45615"
   integrity sha1-0Lk52Uwde9U9BIJK9F8RObjEVhU=
 
 "@types/prettier@^2.2.3":
@@ -46,7 +46,7 @@ arg@^4.1.0:
 
 asynckit@^0.4.0:
   version "0.4.0"
-  resolved "https://registry.npm.taobao.org/asynckit/download/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
+  resolved "https://registry.nlark.com/asynckit/download/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
 at-least-node@^1.0.0:
@@ -102,7 +102,7 @@ fs-extra@^9.1.0:
 
 graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   version "4.2.6"
-  resolved "https://registry.npm.taobao.org/graceful-fs/download/graceful-fs-4.2.6.tgz#ff040b2b0853b23c3d31027523706f1885d76bee"
+  resolved "https://registry.nlark.com/graceful-fs/download/graceful-fs-4.2.6.tgz#ff040b2b0853b23c3d31027523706f1885d76bee"
   integrity sha1-/wQLKwhTsjw9MQJ1I3BvGIXXa+4=
 
 jsonfile@^6.0.1:
@@ -116,7 +116,7 @@ jsonfile@^6.0.1:
 
 lodash.groupby@^4.6.0:
   version "4.6.0"
-  resolved "https://registry.npm.taobao.org/lodash.groupby/download/lodash.groupby-4.6.0.tgz#0b08a1dcf68397c397855c3239783832df7403d1"
+  resolved "https://registry.nlark.com/lodash.groupby/download/lodash.groupby-4.6.0.tgz#0b08a1dcf68397c397855c3239783832df7403d1"
   integrity sha1-Cwih3PaDl8OXhVwyOXg4Mt90A9E=
 
 make-error@^1.1.1:
@@ -148,7 +148,7 @@ prettier@^2.2.1:
 
 source-map-support@^0.5.17:
   version "0.5.19"
-  resolved "https://registry.npm.taobao.org/source-map-support/download/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"
+  resolved "https://registry.nlark.com/source-map-support/download/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"
   integrity sha1-qYti+G3K9PZzmWSMCFKRq56P7WE=
   dependencies:
     buffer-from "^1.0.0"
@@ -156,7 +156,7 @@ source-map-support@^0.5.17:
 
 source-map@^0.6.0:
   version "0.6.1"
-  resolved "https://registry.npm.taobao.org/source-map/download/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+  resolved "https://registry.nlark.com/source-map/download/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
 
 ts-node@^9.1.1:
@@ -173,12 +173,12 @@ ts-node@^9.1.1:
 
 tslib@^2.2.0:
   version "2.2.0"
-  resolved "https://registry.npm.taobao.org/tslib/download/tslib-2.2.0.tgz?cache=0&sync_timestamp=1617647074515&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
+  resolved "https://registry.nlark.com/tslib/download/tslib-2.2.0.tgz?cache=0&sync_timestamp=1618846758811&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
   integrity sha1-+yxHWXfjXiQTEe3iaTzuHsZpj1w=
 
 universalify@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.npm.taobao.org/universalify/download/universalify-2.0.0.tgz?cache=0&sync_timestamp=1603179967633&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Funiversalify%2Fdownload%2Funiversalify-2.0.0.tgz#75a4984efedc4b08975c5aeb73f530d02df25717"
+  resolved "https://registry.nlark.com/universalify/download/universalify-2.0.0.tgz#75a4984efedc4b08975c5aeb73f530d02df25717"
   integrity sha1-daSYTv7cSwiXXFrrc/Uw0C3yVxc=
 
 yn@3.1.1:

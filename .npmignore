@@ -1,5 +1,5 @@
 api
 demo
-.swagger-ts-codegen.config.json
+.swagger-ts-define.config.json
 tsconfig.ts
 yarn.lock
