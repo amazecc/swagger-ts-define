@@ -58,7 +58,7 @@ export interface Parameter {
 export type RequestBody = RequestBodyObject | RequestBodyRef
 
 export interface RequestBodyObject {
-  content: BodyObjectContent
+  content?: BodyObjectContent
   /** body 的描述 */
   description?: string
   /** body 是否可选 */
@@ -69,16 +69,15 @@ export interface RequestBodyRef {
   $ref: `#/components/requestBodies/${string}`
 }
 
-export type BodyObjectContent = Record<MediaType, { schema: Schema }>
+export type BodyObjectContent = Partial<Record<MediaType, { schema: Schema }>>
 
 export interface ResponseBodyObject {
-  content: BodyObjectContent
+  content?: BodyObjectContent
   /** body 的描述 */
   description?: string
 }
 
-// TODO: 完成其他 http code 的类型生成
 export interface Responses {
-  200: ResponseBodyObject
+  200?: ResponseBodyObject
   [k: string]: any
 }

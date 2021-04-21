@@ -23,7 +23,7 @@ export interface Options {
   docUrl: string;
   outputDir: string;
   getPath: (path: string) => string;
-  requestForm: string;
+  requestFrom: string;
   isoString: {
     typeName: string;
     import: string;
@@ -48,7 +48,7 @@ const createAPIType = (types: Record<string, string | undefined>) => {
 };
 /** 生成并写入所有的 api 调用方法寄文件 */
 const createAPIService = (apis: API[]) => {
-  const ajaxString = options.requestForm.match(/{([\w\s]+)}/)![1].trim();
+  const ajaxString = options.requestFrom.match(/{([\w\s]+)}/)![1].trim();
   Object.entries(groupby(apis, (item) => item.tags[0])).forEach(([tag, apis]) => {
     // 该分类的接口所有用到的类型
     const requestTypes: (string | undefined)[] = [];
@@ -68,7 +68,7 @@ const createAPIService = (apis: API[]) => {
 			  `);
     });
     const code = `
-		  ${options.requestForm}
+		  ${options.requestFrom}
 		  ${requestTypes.length > 0 ? `import { ${requestTypes.join(',')} } from "./api";` : ''}
  
 		  ${apisStringArray.join('\n')}

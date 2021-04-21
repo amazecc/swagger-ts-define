@@ -221,17 +221,21 @@ export class SchemaParser {
         // TODO:在 requestBodies 中，公共区域
         throw new Error('request body 使用了公用部分，请补充');
       }
-      const schema = operationMetadata.requestBody.content['application/json'].schema;
-      const typeName = this.getTypeNameFromSchema(interfaceName, 'body', schema);
-      const bodyInterfaceName = camelCase(`${interfaceName}-body`);
-      this.types[bodyInterfaceName] = this.createTypeAliasString(bodyInterfaceName, [typeName]);
+      const schema = operationMetadata.requestBody?.content?.['application/json']?.schema;
+      if (schema) {
+        const typeName = this.getTypeNameFromSchema(interfaceName, 'body', schema);
+        const bodyInterfaceName = camelCase(`${interfaceName}-body`);
+        this.types[bodyInterfaceName] = this.createTypeAliasString(bodyInterfaceName, [typeName]);
+      }
     }
   }
 
   /** 解析 response 类型 */
   private createResponseTypes(interfaceName: string, operationMetadata: OperationMetadata) {
-    const schema = operationMetadata.responses[200].content['application/json'].schema;
-    this.getTypeNameFromSchema(interfaceName, 'response', schema);
+    const schema = operationMetadata.responses?.[200]?.content?.['application/json']?.schema;
+    if (schema) {
+      this.getTypeNameFromSchema(interfaceName, 'response', schema);
+    }
   }
 
   /** 生成接口并添加到 this.APIList */
