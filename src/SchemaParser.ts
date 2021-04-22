@@ -55,6 +55,11 @@ export class SchemaParser {
 	   `;
   };
 
+  /** 生成带有继承关系的类型字符串 */
+  private createExtendsInterfaceString(interfaceName: string, extendsInterfaces: string[]) {
+    return `export interface ${interfaceName}${extendsInterfaces.length > 0 ? ` extends ${extendsInterfaces.join(',')}` : ''} {}`;
+  }
+
   /** 创建 type 类型个别名字符串 */
   private createTypeAliasString(name: string, childTypes: (number | string)[], description?: string) {
     return `
@@ -72,15 +77,33 @@ export class SchemaParser {
       .join('');
   }
 
+  /** 过滤得到合法的 schema */
+  private getLegalSchema(schemas: Schema[]) {
+    return schemas.filter((schema) => {
+      return 'type' in schema || '$ref' in schema || 'allOf' in schema || 'oneOf' in schema || 'oneOf' in schema;
+    });
+  }
+
   private getTypeNameFromSchema(interfaceName: string, fieldName: string, schema: Schema): string {
     if ('allOf' in schema) {
-      return 'any'; // TODO
+      const interfaceNames = this.getLegalSchema(schema.allOf).map((_) => this.getTypeNameFromSchema(interfaceName, fieldName, _));
+      const allOfTypeName = camelCase(`${interfaceName}-${fieldName}`);
+      this.types[allOfTypeName] = this.createExtendsInterfaceString(allOfTypeName, interfaceNames);
+      return allOfTypeName;
     }
     if ('anyOf' in schema) {
-      return 'any'; // TODO
+      const interfaceNames = this.getLegalSchema(schema.anyOf).map((_) => this.getTypeNameFromSchema(interfaceName, fieldName, _));
+      const anyOfTypeName = camelCase(`${interfaceName}-${fieldName}`);
+      const allOfTypeName = camelCase(`${anyOfTypeName}-allOf`);
+      this.types[allOfTypeName] = this.createExtendsInterfaceString(allOfTypeName, interfaceNames);
+      this.types[anyOfTypeName] = this.createTypeAliasString(anyOfTypeName, interfaceNames.concat(allOfTypeName));
+      return anyOfTypeName;
     }
     if ('oneOf' in schema) {
-      return 'any'; // TODO
+      const interfaceNames = this.getLegalSchema(schema.oneOf).map((_) => this.getTypeNameFromSchema(interfaceName, fieldName, _));
+      const oneOfTypeName = camelCase(`${interfaceName}-${fieldName}`);
+      this.types[oneOfTypeName] = this.createTypeAliasString(oneOfTypeName, interfaceNames);
+      return oneOfTypeName;
     }
     if ('$ref' in schema) {
       const data = schema.$ref.split('/');
