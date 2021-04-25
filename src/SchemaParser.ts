@@ -73,7 +73,7 @@ export class SchemaParser {
     const path = this.#options?.getPath?.(apiPath) ?? apiPath;
     return path
       .split('/')
-      .map((_) => (/{[a-zA-Z]+}/.test(_) ? `By${camelCase(_.slice(1, -1))}` : camelCase(_)))
+      .map((_) => (/{[\w]+}/.test(_) ? `By${camelCase(_.slice(1, -1))}` : camelCase(_)))
       .join('');
   }
 
