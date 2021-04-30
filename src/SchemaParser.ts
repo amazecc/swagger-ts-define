@@ -86,13 +86,13 @@ export class SchemaParser {
 
   private getTypeNameFromSchema(interfaceName: string, fieldName: string, schema: Schema): string {
     if ('allOf' in schema) {
-      const interfaceNames = this.getLegalSchema(schema.allOf).map((_) => this.getTypeNameFromSchema(interfaceName, fieldName, _));
+      const interfaceNames = this.getLegalSchema(schema.allOf).map((_, index) => this.getTypeNameFromSchema(interfaceName, `${fieldName}${index}`, _));
       const allOfTypeName = camelCase(`${interfaceName}-${fieldName}`);
       this.types[allOfTypeName] = this.createExtendsInterfaceString(allOfTypeName, interfaceNames);
       return allOfTypeName;
     }
     if ('anyOf' in schema) {
-      const interfaceNames = this.getLegalSchema(schema.anyOf).map((_) => this.getTypeNameFromSchema(interfaceName, fieldName, _));
+      const interfaceNames = this.getLegalSchema(schema.anyOf).map((_, index) => this.getTypeNameFromSchema(interfaceName, `${fieldName}${index}`, _));
       const anyOfTypeName = camelCase(`${interfaceName}-${fieldName}`);
       const allOfTypeName = camelCase(`${anyOfTypeName}-allOf`);
       this.types[allOfTypeName] = this.createExtendsInterfaceString(allOfTypeName, interfaceNames);
@@ -100,7 +100,7 @@ export class SchemaParser {
       return anyOfTypeName;
     }
     if ('oneOf' in schema) {
-      const interfaceNames = this.getLegalSchema(schema.oneOf).map((_) => this.getTypeNameFromSchema(interfaceName, fieldName, _));
+      const interfaceNames = this.getLegalSchema(schema.oneOf).map((_, index) => this.getTypeNameFromSchema(interfaceName, `${fieldName}${index}`, _));
       const oneOfTypeName = camelCase(`${interfaceName}-${fieldName}`);
       this.types[oneOfTypeName] = this.createTypeAliasString(oneOfTypeName, interfaceNames);
       return oneOfTypeName;
